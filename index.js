@@ -27,7 +27,6 @@ const addBook = (e) => {
 
   localStorage.setItem('Books', JSON.stringify(Books));
 
-
   const removeBtn = document.querySelectorAll('.remove-book');
   removeBtn.forEach((btn) => {
     btn.addEventListener('click', (e) => {
