@@ -1,7 +1,7 @@
-const form = document.querySelector(".add-book-form");
-const bookTitle = document.querySelector("#book-title");
-const bookAuthor = document.querySelector("#book-author");
-const booksContainer = document.querySelector(".books-container");
+const form = document.querySelector('.add-book-form');
+const bookTitle = document.querySelector('#book-title');
+const bookAuthor = document.querySelector('#book-author');
+const booksContainer = document.querySelector('.books-container');
 
 const Books = [];
 const addBook = (e) => {
@@ -20,18 +20,18 @@ const addBook = (e) => {
     author: bookAuthor.value,
   });
 
-  const removeBtn = document.querySelectorAll(".remove-book");
+  const removeBtn = document.querySelectorAll('.remove-book');
   removeBtn.forEach((btn) => {
-    btn.addEventListener("click", removeBook);
+    btn.addEventListener('click', removeBook);
   });
 };
 
-form.addEventListener("submit", addBook);
+form.addEventListener('submit', addBook);
 
 const removeBook = (e) => {
-  if (e.target.classList.contains("remove-book")) {
-    let index = Array.from(
-      e.target.parentElement.parentElement.children
+  if (e.target.classList.contains('remove-book')) {
+    const index = Array.from(
+      e.target.parentElement.parentElement.children,
     ).indexOf(e.target.parentElement);
     Books.splice(index, 1);
     e.target.parentElement.remove();

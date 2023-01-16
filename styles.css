@@ -3,14 +3,13 @@
   display: flex;
   justify-content: center;
 }
-.add-book-form {
-  margin-right: 1.6rem;
-}
 
 .add-book-form {
+  margin-right: 1.6rem;
   display: flex;
   flex-direction: column;
 }
+
 .Books {
   display: flex;
   justify-content: center;
@@ -18,12 +17,15 @@
   width: 200px;
   margin: auto;
 }
+
 .remove-book {
   width: 4.2rem;
 }
+
 #add-button {
   width: 3rem;
 }
+
 hr {
   width: 400px;
 }
