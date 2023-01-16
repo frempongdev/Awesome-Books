@@ -22,18 +22,16 @@ const addBook = (e) => {
 
   const removeBtn = document.querySelectorAll('.remove-book');
   removeBtn.forEach((btn) => {
-    btn.addEventListener('click', removeBook);
+    btn.addEventListener('click', (e) => {
+      if (e.target.classList.contains('remove-book')) {
+        const index = Array.from(
+          e.target.parentElement.parentElement.children,
+        ).indexOf(e.target.parentElement);
+        Books.splice(index, 1);
+        e.target.parentElement.remove();
+      }
+    });
   });
 };
 
 form.addEventListener('submit', addBook);
-
-const removeBook = (e) => {
-  if (e.target.classList.contains('remove-book')) {
-    const index = Array.from(
-      e.target.parentElement.parentElement.children,
-    ).indexOf(e.target.parentElement);
-    Books.splice(index, 1);
-    e.target.parentElement.remove();
-  }
-};
