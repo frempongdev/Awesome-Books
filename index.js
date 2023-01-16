@@ -3,7 +3,12 @@ const bookTitle = document.querySelector('#book-title');
 const bookAuthor = document.querySelector('#book-author');
 const booksContainer = document.querySelector('.books-container');
 
-const Books = [];
+let Books = [];
+
+if (localStorage.getItem('Books')) {
+  Books = JSON.parse(localStorage.getItem('Books'));
+}
+
 const addBook = (e) => {
   e.preventDefault();
   booksContainer.innerHTML += ` 
@@ -19,6 +24,9 @@ const addBook = (e) => {
     title: bookTitle.value,
     author: bookAuthor.value,
   });
+
+  localStorage.setItem('Books', JSON.stringify(Books));
+
 
   const removeBtn = document.querySelectorAll('.remove-book');
   removeBtn.forEach((btn) => {
