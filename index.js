@@ -1,15 +1,8 @@
-const Books = [
-  {
-    title: "",
-    author: "",
-  },
-];
+const Books = [];
 
-console.log(Books);
 const form = document.querySelector(".add-book-form");
 const bookTitle = document.querySelector("#book-title");
 const bookAuthor = document.querySelector("#book-author");
-const addbtn = document.querySelector("#add-button");
 
 const booksContainer = document.querySelector(".books-container");
 
@@ -23,20 +16,24 @@ const addBook = (e) => {
                 <hr>
             </div>
     `;
+  Books.push({
+    title:bookTitle.value,
+    author: bookAuthor.value,
+  });
 
-  console.log(booksContainer);
-  removeBtn.booksContainer.innerHTML;
+  const removeBtn = document.querySelectorAll(".remove-book");
+  removeBtn.forEach((btn) => {
+    btn.addEventListener("click", removeBook);
+  });
 };
 
 form.addEventListener("submit", addBook);
 
-const removeBtn = document.querySelectorAll(".remove-book");
+const removeBook = (e) => {
+  if (e.target.classList.contains("remove-book")) {
+    let index = Array.from(e.target.parentElement.parentElement.children).indexOf(e.target.parentElement);
+    Books.splice(index,1);
+    e.target.parentElement.remove();
+  }
+};
 
-// const removeBook = () => {
-//   removeBtn.forEach(btn, () => {
-//     alert("hi");
-//     // btn.parentElement
-//     console.log(btn);
-//   });
-// };
-// removeBtn.addEventListener("click", removeBook);
